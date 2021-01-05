@@ -1,0 +1,63 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - X_and_Os</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+    <body>
+        <h1>X and O's</h1>
+        <br />
+        <p id="GameState">Gamestate - NotStarted</p>
+        <p id="CurrentPlayer">Player ID - None</p>
+        <p id="Player1Score">Player 1 Score - 0</p>
+        <p id="Player2Score">Player 2 Score - 0</p>
+        <br />
+        <hr />
+        <div>
+            <span>
+                <span><input type="button" class="button-grid" id="btn1" value="" onclick="CheckButtonState(0)" /></span>
+                <span><input type="button" class="button-grid" id="btn2" value="" onclick="CheckButtonState(1)" /></span>
+                <span><input type="button" class="button-grid" id="btn3" value="" onclick="CheckButtonState(2)" /></span>
+            </span>
+        </div>
+        <div>
+            <span>
+                <span><input type="button" class="button-grid" id="btn4" value="" onclick="CheckButtonState(3)" /></span>
+                <span><input type="button" class="button-grid" id="btn5" value="" onclick="CheckButtonState(4)" /></span>
+                <span><input type="button" class="button-grid" id="btn6" value="" onclick="CheckButtonState(5)" /></span>
+            </span>
+        </div>
+        <div>
+            <span>
+                <span><input type="button" class="button-grid" id="btn7" value="" onclick="CheckButtonState(6)" /></span>
+                <span><input type="button" class="button-grid" id="btn8" value="" onclick="CheckButtonState(7)" /></span>
+                <span><input type="button" class="button-grid" id="btn9" value="" onclick="CheckButtonState(8)" /></span>
+            </span>
+        </div>
+        <div>
+            <span>
+                <span><input type="button" value="New Game" onclick="RequestNewGame()" /></span>
+                <span><input type="button" value="Reset Game" onclick="RequestResetGame()" /></span>
+            </span>
+        </div>
+        <div>
+            <h1>Stream chat</h1>
+
+            <input id="sendmessage" type="button" value="Send!" />
+            <input id="messageTextInput" type="text" />
+
+            <ul id="chatMessages"></ul>
+
+            <script src="~/js/XandOs2P.js"></script>
+        </div>
+    </body>
+</html>
