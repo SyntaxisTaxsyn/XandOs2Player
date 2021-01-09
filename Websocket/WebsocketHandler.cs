@@ -5,12 +5,14 @@ using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using XandOs2Player.Game_Classes;
 
 namespace XandOs2Player.Websocket
 {
     public class WebsocketHandler : IWebsocketHandler
     {
         public List<SocketConnection> websocketConnections = new List<SocketConnection>();
+        public List<TicTacToe> TicTacToeInstances = new List<TicTacToe>();
 
         public WebsocketHandler()
         {

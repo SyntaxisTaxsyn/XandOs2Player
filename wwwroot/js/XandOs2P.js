@@ -300,7 +300,7 @@ function CheckButtonState(iButtonNumber) {
 
                 GridState[iButtonNumber] = sCurrentPlayer;
                 CheckWinners();
-                SendMessage(MessageConstants.UPDATE,GetUpdateValues())
+                SendMessage(MessageConstants.UPDATE, GetUpdateValues());
             }
         }
     }
@@ -350,6 +350,7 @@ function CheckWinners() {
     }
 
     if (CheckWinner(sPlayerToCheck) == true) {
+        SendMessage(MessageConstants.UPDATE, GetUpdateValues());
         SendMessage(MessageConstants.WINNER, GetPlayersName() + " wins" + GetScoreUpdate(window.User.number));
         //alert(GetPlayersName("X") + " wins");
         bWinCheck = true;

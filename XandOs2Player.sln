@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XandOs2Player", "XandOs2Player.csproj", "{1AEF2A11-FD6C-4611-A525-5ECDEEAACF4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XandOs2Player", "XandOs2Player.csproj", "{1AEF2A11-FD6C-4611-A525-5ECDEEAACF4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "..\UnitTestProject1\UnitTestProject1.csproj", "{ABE4633A-6943-4AEC-884D-07BF25EE0EE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1AEF2A11-FD6C-4611-A525-5ECDEEAACF4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AEF2A11-FD6C-4611-A525-5ECDEEAACF4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AEF2A11-FD6C-4611-A525-5ECDEEAACF4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABE4633A-6943-4AEC-884D-07BF25EE0EE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABE4633A-6943-4AEC-884D-07BF25EE0EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABE4633A-6943-4AEC-884D-07BF25EE0EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABE4633A-6943-4AEC-884D-07BF25EE0EE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
