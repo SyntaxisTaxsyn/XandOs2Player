@@ -72,13 +72,125 @@ namespace XandOs2Player.Game_Classes
             UpdateScreenValues();
             
         }
-        private void CheckWinners() { }
-        private void CheckCatsGame() { }
-        private void UpdateScore() { }
-        private void CheckWinner() { }
-        private void GetPlayersName() { }
-        private void UpdateScreenValues() { }
+        public void CheckWinners() {
+            bool bWinCheck = false;
+            string sPlayerToUpdate = "";
+
+            if (CheckWinner(PlayerSymbols.X) == true)
+            {
+                SendAlertToPlayers(GetPlayersName(PlayerSymbols.X) + " wins");
+                sPlayerToUpdate = PlayerSymbols.X;
+                bWinCheck = true; 
+            }
+
+            if (CheckWinner(PlayerSymbols.O) == true)
+            {
+                SendAlertToPlayers(GetPlayersName(PlayerSymbols.O) + " wins");
+                sPlayerToUpdate = PlayerSymbols.O;
+                bWinCheck = true;
+            }
+
+            if (bWinCheck == true)
+            {
+                UpdateScore(sPlayerToUpdate);
+                NewGame();
+            } else
+            {
+                if (CheckCatsGame()) { NewGame(); }
+            }
+        }
+        public bool CheckCatsGame() {
+
+            int setcount = 0;
+
+            for (int i = 0; i <= 8; i++)
+            {
+                if (GridState[i] == PlayerSymbols.X ||
+                    GridState[i] == PlayerSymbols.O)
+                {
+                    setcount++;
+                }
+            }
+
+            if (setcount == 9)
+            {
+                SendAlertToPlayers("Cats game - nobody wins ha ha!");
+                return true;
+            } else
+            {
+                return false;
+            }
+
+        }
+        public void UpdateScore(string sPlayer) {
+            if (sPlayer == PlayerSymbols.X) { iPlayer1Score++; }
+            if (sPlayer == PlayerSymbols.O) { iPlayer2Score++; }
+        }
+        public bool CheckWinner(string sPlayer) {
+
+            bool bCheck = false;
+
+            // Check for single row win cases
+            if (GridState[0] == sPlayer &&
+                GridState[1] == sPlayer &&
+                GridState[2] == sPlayer
+                ) { bCheck = true; }
+
+            if (GridState[3] == sPlayer &&
+                GridState[4] == sPlayer &&
+                GridState[5] == sPlayer
+                ) { bCheck = true; }
+
+            if (GridState[6] == sPlayer &&
+                GridState[7] == sPlayer &&
+                GridState[8] == sPlayer
+                ) { bCheck = true; }
+
+            // Check for single column win cases
+            if (GridState[0] == sPlayer &&
+                GridState[3] == sPlayer &&
+                GridState[6] == sPlayer
+                ) { bCheck = true; }
+
+            if (GridState[1] == sPlayer &&
+                GridState[4] == sPlayer &&
+                GridState[7] == sPlayer
+                ) { bCheck = true; }
+
+            if (GridState[2] == sPlayer &&
+                GridState[5] == sPlayer &&
+                GridState[8] == sPlayer
+                ) { bCheck = true; }
+
+            // Check for cross grid win cases
+            if (GridState[0] == sPlayer &&
+                GridState[4] == sPlayer &&
+                GridState[8] == sPlayer
+                ) { bCheck = true; }
+
+            if (GridState[2] == sPlayer &&
+                GridState[4] == sPlayer &&
+                GridState[6] == sPlayer
+                ) { bCheck = true; }
+
+            return bCheck;
+
+        }
+        public string GetPlayersName(string sPlayer) {
+            switch (sPlayer)
+            {
+                case PlayerSymbols.X:
+                    return sP1Name;
+                case PlayerSymbols.O:
+                    return sP2Name;
+                default:
+                    return "";
+            }
+        }
+        public void UpdateScreenValues() { }
         private void CheckButtonState() { }
+
+        private void SendAlertToPlayers(string AlertMsg) { }
 
     }
 
@@ -91,8 +203,8 @@ namespace XandOs2Player.Game_Classes
 
     public class PlayerSymbols
     {
-        public static string X = "X";
-        public static string O = "O";
+        public const string X = "X";
+        public const string O = "O";
     }
 }
 
